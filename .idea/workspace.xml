@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectOOP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectOOP.iml" afterDir="false" />
+    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="fix encoding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quan_ly_thu_vien.py" beforeDir="false" afterPath="$PROJECT_DIR$/quan_ly_thu_vien.py" afterDir="false" />
     </list>
@@ -77,11 +76,24 @@
       <option name="presentableId" value="Default" />
       <updated>1763733116085</updated>
       <workItem from="1763733117166" duration="718000" />
-      <workItem from="1763733919085" duration="440000" />
+      <workItem from="1763733919085" duration="1536000" />
     </task>
+    <task id="LOCAL-00001" summary="fix encoding">
+      <option name="closed" value="true" />
+      <created>1763734392293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763734392293</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix encoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix encoding" />
   </component>
 </project>
