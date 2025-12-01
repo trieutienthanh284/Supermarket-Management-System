@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="Update">
+    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="Create database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
     </list>
@@ -120,7 +120,8 @@
       <workItem from="1764396163873" duration="469000" />
       <workItem from="1764405709584" duration="534000" />
       <workItem from="1764412727315" duration="7401000" />
-      <workItem from="1764577210890" duration="4353000" />
+      <workItem from="1764577210890" duration="4484000" />
+      <workItem from="1764590365093" duration="1631000" />
     </task>
     <task id="LOCAL-00001" summary="fix encoding">
       <option name="closed" value="true" />
@@ -250,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764425400220</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Create database">
+      <option name="closed" value="true" />
+      <created>1764585732202</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1764585732202</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,13 +270,14 @@
     <MESSAGE value="done class Stakeholder(Employee, Customer, Supplier)" />
     <MESSAGE value="update" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Create database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create database" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProjectOOP$quan_ly_thu_vien.coverage" NAME="quan_ly_thu_vien Coverage Results" MODIFIED="1763780504899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProjectOOP$interface.coverage" NAME="interface Coverage Results" MODIFIED="1764406045635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProjectOOP$em_interface.coverage" NAME="em_interface Coverage Results" MODIFIED="1764419852172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ProjectOOP$database.coverage" NAME="database Coverage Results" MODIFIED="1764582362245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProjectOOP$database.coverage" NAME="database Coverage Results" MODIFIED="1764591185871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProjectOOP$quan_ly_sieu_thi.coverage" NAME="quan_ly_sieu_thi Coverage Results" MODIFIED="1764127057205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
