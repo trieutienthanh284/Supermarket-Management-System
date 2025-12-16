@@ -84,6 +84,16 @@ class Bill():
         self.total_amount = 0
         self.applied_point = 0
 
+    def add_item(self, product_id, quantity, price):
+        if quantity <= 0:
+            raise ValueError("Quantity cannot be zero")
+        self.items.append(Product({'Product_id': product_id,
+                                   'Quantity': quantity,
+                                   'Price': price})
+
+    def remove_item(self, product_id):
+
+
 
 
 
