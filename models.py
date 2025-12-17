@@ -75,6 +75,20 @@ class Category():
     def disable(self):
         self.is_active = False
 
+class BillItem:
+    def __init__(self, product_id, quantity, price):
+        if quantity <= 0:
+            raise ValueError("Quantity must be positive")
+        if price < 0:
+            raise ValueError("Price must be non-negative")
+
+        self.product_id = product_id
+        self.quantity = quantity
+        self.price = price
+
+    def calculate_subtotal(self):
+        return self.quantity * self.price
+
 class Bill():
     def __init__(self, bill_id, customer_id, employee_id):
         self.id = bill_id
@@ -85,13 +99,26 @@ class Bill():
         self.applied_point = 0
 
     def add_item(self, product_id, quantity, price):
-        if quantity <= 0:
-            raise ValueError("Quantity cannot be zero")
-        self.items.append(Product({'Product_id': product_id,
-                                   'Quantity': quantity,
-                                   'Price': price})
+        item = BillItem(product_id, quantity, price)
+        self.items.append(item)
 
     def remove_item(self, product_id):
+        self.items = [
+            item for item in self.items
+            if item["product_id"] != product_id
+        ]
+
+    def calculate_amount(self):
+        self.total_amount = sum(
+            item['quantity'] * item['price']
+            for item in self.items
+        )
+        return self.total_amount
+
+    def apply_point(self, used_point):
+        if used_point <= 0:
+            raise ValueError("Point is not valuable")
+        self.applied_point = used_point
 
 
 
