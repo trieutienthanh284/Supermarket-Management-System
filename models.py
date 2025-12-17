@@ -1,10 +1,12 @@
 class Employee():
     def __init__(self, employee_id, name, phone_number,birthday, gender, identification, title):
+        self.employee_id = employee_id
+        self.name = name
+        self.phone_number = phone_number
         self.identification = identification
         self.gender = gender
         self.title = title
         self.birthday = birthday
-        super().__init__(id, name, phone_number)
         self.is_working = True
 
     def resign(self):
@@ -15,7 +17,9 @@ class Employee():
 
 class Customer():
     def __init__(self, customer_id, name, phone_number):
-        super().__init__(id, name, phone_number)
+        self.customer_id = customer_id
+        self.name = name
+        self.phone_number = phone_number
         self.shopping_point = 0
 
     def add_point(self, point):
@@ -32,7 +36,7 @@ class Customer():
 
 class Supplier():
     def __init__(self, supplier_id, name, hotline, manager, address):
-        self.id = supplier_id
+        self.supplier_id = supplier_id
         self.name = name
         self.hotline = hotline
         self.manager = manager
@@ -40,7 +44,7 @@ class Supplier():
 
 class Product():
     def __init__(self, product_id, name, price, description, quantity, category_id, supplier_id):
-        self.id = product_id
+        self.product_id = product_id
         self.name = name
         self.price = price
         self.description = description
@@ -62,8 +66,7 @@ class Product():
         self.quantity -= amount
 
     def is_out_of_stock(self):
-        if self.quantity == 0:
-            print("Product is out of stock")
+        return self.quantity == 0
 
     def enable(self):
         self.is_active = True
@@ -73,7 +76,7 @@ class Product():
 
 class Category():
     def __init__(self, category_id, name, description = ""):
-        self.id = category_id
+        self.category_id = category_id
         self.name = name
         self.description = description
         self.is_active = True
@@ -84,7 +87,7 @@ class Category():
     def disable(self):
         self.is_active = False
 
-class BillItem:
+class BillItem():
     def __init__(self, product_id, quantity, price):
         if quantity <= 0:
             raise ValueError("Quantity must be positive")
@@ -100,7 +103,7 @@ class BillItem:
 
 class Bill():
     def __init__(self, bill_id, customer_id, employee_id):
-        self.id = bill_id
+        self.bill_id = bill_id
         self.customer_id = customer_id
         self.employee_id = employee_id
         self.items = []
@@ -110,16 +113,18 @@ class Bill():
     def add_item(self, product_id, quantity, price):
         item = BillItem(product_id, quantity, price)
         self.items.append(item)
+        self.calculate_amount()
 
     def remove_item(self, product_id):
         self.items = [
             item for item in self.items
-            if item["product_id"] != product_id
+            if item.product_id != product_id
         ]
+        self.calculate_amount()
 
     def calculate_amount(self):
         self.total_amount = sum(
-            item['quantity'] * item['price']
+            item.quantity * item.price
             for item in self.items
         )
         return self.total_amount
@@ -128,6 +133,8 @@ class Bill():
         if used_point <= 0:
             raise ValueError("Point is not valuable")
         self.applied_point = used_point
+        self.total_amount -= used_point
+
 
 
 
