@@ -4,6 +4,7 @@ from services import ReportService
 from interface.tab_for_sales import SaleTab
 from interface.tab_for_employee import EmployeeTab
 from interface.tab_for_customer import CustomerTab
+from interface.tab_for_product import ProductTab
 
 class MainWindow:
     def __init__(self, root, employee):
@@ -56,11 +57,8 @@ class MainWindow:
         self.notebook.add(sale_tab, text="BÁN HÀNG")
 
     def create_product_tab(self):
-        tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="QUẢN LÝ SẢN PHẨM")
-
-        label = tk.Label(tab, text="DANH SÁCH & QUẢN LÝ SẢN PHẨM\n(Sẽ hoàn thiện sau)", font=("Arial", 24), fg="#3498db")
-        label.pack(expand=True)
+        product_tab = ProductTab(self.notebook)
+        self.notebook.add(product_tab, text="QUẢN LÝ SẢN PHẨM")
 
     def create_customer_tab(self):
         customer_tab = CustomerTab(self.notebook)
