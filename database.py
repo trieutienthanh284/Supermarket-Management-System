@@ -1,4 +1,3 @@
-# database.py - Setup database với ID có prefix (đã sửa lỗi biến)
 import mysql.connector
 from mysql.connector import Error
 

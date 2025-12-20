@@ -45,7 +45,7 @@ class Supplier():
         self.address = address
 
 class Product():
-    def __init__(self, product_id, name, price, description, quantity, category_id, supplier_id):
+    def __init__(self, product_id, name, price, description, quantity, category_id, supplier_id, is_active = True):
         self.product_id = product_id
         self.name = name
         self.price = price
@@ -53,7 +53,7 @@ class Product():
         self.quantity = quantity
         self.category_id = category_id
         self.supplier_id = supplier_id
-        self.is_active = True
+        self.is_active = is_active
 
     def increase_stock(self, amount):
         if amount <= 0:

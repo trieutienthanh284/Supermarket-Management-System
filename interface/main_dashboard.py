@@ -1,13 +1,17 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 from services import ReportService
+from interface.tab_for_sales import SaleTab
+from interface.tab_for_employee import EmployeeTab
+from interface.tab_for_customer import CustomerTab
 
 class MainWindow:
     def __init__(self, root, employee):
         self.root = root
         self.employee = employee
         self.root.title(f"HỆ THỐNG QUẢN LÝ SIÊU THỊ - {employee['name']} ({employee['title']})")
-        self.root.geometry("1200x700")
+        self.root.geometry("1380x730")
+        self.root.state('zoomed')
 
         self.report_service = ReportService()
 
@@ -31,26 +35,25 @@ class MainWindow:
         self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
 
         # Phân quyền tab theo chức vụ
-        if self.employee['title'] == 'Quản lý':
+        title = self.employee['title'].strip()
+
+        if title in ['Quản lý', 'Phó quản lý']:
             self.create_sale_tab()
             self.create_product_tab()
             self.create_customer_tab()
             self.create_employee_tab()
             self.create_report_tab()
-        elif self.employee['title'] == 'Thu ngân':
+        elif title == 'Thu ngân':
             self.create_sale_tab()
         else:
-            messagebox.showerror("Quyền truy cập", "Chức vụ của bạn không được phép sử dụng hệ thống này!")
+            messagebox.showerror("Quyền truy cập", f"Chức vụ '{title}' không được phép sử dụng hệ thống này!")
             self.root.destroy()
             return
 
     # Các tab
     def create_sale_tab(self):
-        tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="BÁN HÀNG")
-
-        label = tk.Label(tab, text="CHỨC NĂNG BÁN HÀNG\n(Sẽ hoàn thiện sau)", font=("Arial", 24), fg="#27ae60")
-        label.pack(expand=True)
+        sale_tab = SaleTab(self.notebook, self.employee)  # Truyền employee nếu cần
+        self.notebook.add(sale_tab, text="BÁN HÀNG")
 
     def create_product_tab(self):
         tab = ttk.Frame(self.notebook)
@@ -60,18 +63,12 @@ class MainWindow:
         label.pack(expand=True)
 
     def create_customer_tab(self):
-        tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="QUẢN LÝ KHÁCH HÀNG")
-
-        label = tk.Label(tab, text="THÔNG TIN KHÁCH HÀNG & ĐIỂM TÍCH LŨY\n(Sẽ hoàn thiện sau)", font=("Arial", 24), fg="#9b59b6")
-        label.pack(expand=True)
+        customer_tab = CustomerTab(self.notebook)
+        self.notebook.add(customer_tab, text="QUẢN LÝ KHÁCH HÀNG")
 
     def create_employee_tab(self):
-        tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="QUẢN LÝ NHÂN VIÊN")
-
-        label = tk.Label(tab, text="DANH SÁCH NHÂN VIÊN & PHÂN QUYỀN\n(Chỉ Quản lý/Phó quản lý mới thấy)", font=("Arial", 24), fg="#e67e22")
-        label.pack(expand=True)
+        employee_tab = EmployeeTab(self.notebook)
+        self.notebook.add(employee_tab, text="QUẢN LÝ NHÂN VIÊN")
 
     def create_report_tab(self):
         tab = ttk.Frame(self.notebook)
@@ -106,7 +103,7 @@ class MainWindow:
             self.root.destroy()
             # Quay lại login
             import tkinter as tk
-            from ui.login_window import LoginWindow
+            from interface.login_dashboard import LoginWindow
             new_root = tk.Tk()
             LoginWindow(new_root, lambda e: MainWindow(tk.Tk(), e))
             new_root.mainloop()
