@@ -11,7 +11,8 @@ class BaseService:
             password='123456789',
             database='quản lý siêu thị',
             charset='utf8mb4',
-            collation='utf8mb4_unicode_ci'
+            collation='utf8mb4_unicode_ci',
+            autocommit=True
         )
 
     def get_cursor(self):

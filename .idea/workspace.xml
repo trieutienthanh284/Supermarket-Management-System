@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="Fix bug Thanh toán" />
+    <list default="true" id="12ccd966-7846-4b84-9b15-a9e6ebae090b" name="Changes" comment="Fix bug Thanh toán">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/tab_for_sales.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface/tab_for_sales.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,36 +54,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.database.executor": "Run",
-    "Python.em_interface.executor": "Run",
-    "Python.interface.executor": "Run",
-    "Python.login_dashboard.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.main_dashboard.executor": "Run",
-    "Python.quan_ly_sieu_thi.executor": "Run",
-    "Python.quan_ly_thu_vien.executor": "Run",
-    "Python.services.executor": "Run",
-    "Python.tab_for_customer.executor": "Run",
-    "Python.tab_for_employee.executor": "Run",
-    "Python.tab_for_sales.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.em_interface.executor&quot;: &quot;Run&quot;,
+    &quot;Python.interface.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login_dashboard.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_dashboard.executor&quot;: &quot;Run&quot;,
+    &quot;Python.quan_ly_sieu_thi.executor&quot;: &quot;Run&quot;,
+    &quot;Python.quan_ly_thu_vien.executor&quot;: &quot;Run&quot;,
+    &quot;Python.services.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tab_for_customer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tab_for_employee.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tab_for_sales.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ADMIN\OneDrive\Máy tính\ProjectOOP\interface" />
@@ -385,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766261117615</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fix bug Thanh toán">
+      <option name="closed" value="true" />
+      <created>1766261378931</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1766261378931</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

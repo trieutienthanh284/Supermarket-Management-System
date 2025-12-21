@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog
 from services import ProductService, CustomerService, BillService
+from datetime import datetime
 import mysql.connector
 from mysql.connector import Error
 
@@ -251,16 +252,80 @@ class SaleTab(ttk.Frame):
             self.bill_service.apply_points(bill.bill_id, used_points, self.current_customer.customer_id)
 
         if success:
-            # Tích điểm mới: 1 điểm mỗi 100.000đ thành tiền
             points_earned = final_total // 100000
-            self.bill_service.complete_bill(bill.bill_id, getattr(self.current_customer, 'customer_id', None), points_earned)
+            self.bill_service.complete_bill(bill.bill_id, getattr(self.current_customer, 'customer_id', None),
+                                            points_earned)
 
             messagebox.showinfo("THÀNH CÔNG!",
                                 f"Thanh toán thành công!\n"
                                 f"Thành tiền: {final_total:,.0f} VND\n"
                                 f"Tích điểm mới: +{points_earned} điểm")
+
+            self.print_bill(bill.bill_id, self.cart, total, used_points, final_total, points_earned)
+
             self.clear_cart()
-            self.search_customer()  # Cập nhật điểm mới
-            self.load_all_products()  # Cập nhật tồn kho
-        else:
-            messagebox.showerror("Lỗi", "Thanh toán thất bại! Có thể sản phẩm đã hết hàng.")
+            self.search_customer()
+            self.load_all_products()
+
+    def print_bill(self, bill_id, cart_items, total, used_points, final_total, points_earned):
+        # Popup hóa đơn
+        bill_window = tk.Toplevel(self)
+        bill_window.title(f"HÓA ĐƠN THANH TOÁN - MÃ {bill_id}")
+        bill_window.geometry("800x700")
+        bill_window.configure(bg="white")
+
+        # Header hóa đơn
+        header = tk.Frame(bill_window, bg="white")
+        header.pack(pady=20)
+
+        tk.Label(header, text="SIÊU THỊ ABC GROUP", font=("Arial", 24, "bold"), bg="white", fg="#2c3e50").pack()
+        tk.Label(header, text="Địa chỉ: 120 An Liễng", font=("Arial", 12), bg="white").pack()
+        tk.Label(header, text="Hotline: 1936 363 636", font=("Arial", 12), bg="white").pack()
+        tk.Label(header, text=f"Mã hóa đơn: HD{bill_id:06d}", font=("Arial", 14, "bold"), bg="white").pack(pady=10)
+        tk.Label(header, text=f"Ngày: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}", font=("Arial", 12), bg="white").pack()
+        tk.Label(header, text=f"Nhân viên: {self.employee['name']}", font=("Arial", 12), bg="white").pack()
+
+        if self.current_customer:
+            tk.Label(header, text=f"Khách hàng: {self.current_customer.name} - SĐT: {self.current_customer.phone_number}",
+                     font=("Arial", 12), bg="white").pack(pady=5)
+
+        # Bảng sản phẩm
+        table_frame = tk.Frame(bill_window, bg="white")
+        table_frame.pack(fill="both", expand=True, padx=50, pady=20)
+
+        columns = ("STT", "Tên sản phẩm", "SL", "Giá", "Thành tiền")
+        tree = ttk.Treeview(table_frame, columns=columns, show="headings", height=len(cart_items))
+        for col in columns:
+            tree.heading(col, text=col)
+            tree.column(col, anchor="center")
+        tree.pack(fill="both", expand=True)
+
+        for i, item in enumerate(cart_items, 1):
+            p = item['product']
+            qty = item['quantity']
+            subtotal = qty * p.price
+            tree.insert("", "end", values=(i, p.name, qty, f"{p.price:,.0f}", f"{subtotal:,.0f}"))
+
+        # Tổng kết
+        footer = tk.Frame(bill_window, bg="white")
+        footer.pack(pady=30)
+
+        tk.Label(footer, text=f"TỔNG TIỀN:", font=("Arial", 16, "bold"), bg="white").pack(anchor="e")
+        tk.Label(footer, text=f"{total:,.0f} VND", font=("Arial", 16, "bold"), bg="white", fg="blue").pack(anchor="e")
+
+        if used_points > 0:
+            tk.Label(footer, text=f"Giảm điểm tích lũy:", font=("Arial", 14), bg="white").pack(anchor="e")
+            tk.Label(footer, text=f"- {used_points:,} điểm", font=("Arial", 14), bg="white", fg="green").pack(anchor="e")
+
+        tk.Label(footer, text=f"THÀNH TIỀN:", font=("Arial", 18, "bold"), bg="white").pack(anchor="e")
+        tk.Label(footer, text=f"{final_total:,.0f} VND", font=("Arial", 18, "bold"), bg="white", fg="red").pack(anchor="e")
+
+        if points_earned > 0:
+            tk.Label(footer, text=f"Tích điểm mới: +{points_earned} điểm", font=("Arial", 14, "bold"), bg="white", fg="#27ae60").pack(pady=10)
+
+        tk.Label(footer, text="CẢM ƠN QUÝ KHÁCH ĐÃ MUA HÀNG!", font=("Arial", 16, "bold"), bg="white", fg="#2c3e50").pack(pady=20)
+        tk.Label(footer, text="Hẹn gặp lại quý khách!", font=("Arial", 12), bg="white").pack()
+
+        # Nút in
+        tk.Button(bill_window, text="IN HÓA ĐƠN", font=("Arial", 14, "bold"), bg="#3498db", fg="white", width=20, height=2,
+                  command=lambda: messagebox.showinfo("In", "Đã gửi lệnh in hóa đơn! (chức năng in thật sẽ thêm sau)")).pack(pady=20)
