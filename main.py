@@ -1,4 +1,4 @@
-#Chạy thử toàn bộ hệ thống
+#Chạy toàn bộ hệ thống
 import tkinter as tk
 from interface.login_dashboard import LoginWindow
 from interface.main_dashboard import MainWindow
